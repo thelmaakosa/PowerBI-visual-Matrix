@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "author": {"name":"Andie McPartland","email":"andie.mcpartland@triskele.health"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/Matrix4A257870E6784C63A9AFC94E65428613.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"Triskele Matrix","displayName":"Triskele Matrix 1.0","guid":"Matrix4A257870E6784C63A9AFC94E65428613","visualClassName":"Matrix","version":"1.0","description":"Triskele Matrix","supportUrl":"https://community.powerbi.com","gitHubUrl":"https://github.com/TriskeleTechnology"},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}

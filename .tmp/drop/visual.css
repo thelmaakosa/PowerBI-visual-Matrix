@@ -1,0 +1,59 @@
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-row:hover > td,
+.ant-table-wrapper .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+  background: unset;
+  border-width: unset;
+  border-radius: unset;
+  border-color: unset;
+  border-style: unset;
+  border-start-start-radius: unset;
+  border-end-start-radius: unset;
+}
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row:hover > td:first-child,
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr > td.ant-table-cell-row-hover:first-child,
+:where(.css-26rdvq).ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row.ant-table-row-selected > td:first-child {
+  border-start-start-radius: unset;
+  border-end-start-radius: unset;
+}
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row:hover > td,
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr > td.ant-table-cell-row-hover,
+:where(.css-26rdvq).ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row.ant-table-row-selected > td {
+  border-top-color: unset;
+}
+.ant-table-wrapper .ant-table-row-expand-icon:focus,
+.ant-table-wrapper .ant-table-row-expand-icon:hover {
+  color: unset;
+}
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row:last-child:hover > td,
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row.ant-table-row-selected:last-child > td {
+  border-bottom-color: unset;
+}
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row:hover + tr.ant-table-row > td,
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody > tr.ant-table-row.ant-table-row-selected + tr.ant-table-row > td {
+  border-top-color: unset;
+}
+.ant-table-thead tr th {
+  padding: 4px 16px !important;
+}
+.ant-table-header > table > thead > tr:nth-child(1) > th.ant-table-cell.ant-table-column-has-sorters > div > span.ant-table-column-title > div {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ant-tooltip-content {
+  display: none;
+}
+.row-label-name {
+  margin: 0px;
+}
+.row-label-detail {
+  margin: 0px;
+}
+div.ant-table-header > table > thead > tr:nth-child(1) > th.ant-table-cell.ant-table-column-has-sorters {
+  background: none;
+}
+.ant-table-wrapper .ant-table-row-indent + .ant-table-row-expand-icon {
+  margin-top: 0px;
+}
+

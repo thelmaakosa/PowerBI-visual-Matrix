@@ -1,0 +1,43 @@
+export interface IStyles {
+    fontBold?:boolean|string
+    fontColor?:string
+    fontFamily?:string
+    fontItalic?:boolean
+    fontSize?:number
+    fontUnderline?:boolean
+    fillColor?:string
+    fillOpacity?:number
+    outlineBottom?:boolean
+    outlineLeft?:boolean
+    outlineRight?:boolean
+    outlineTop?:boolean
+    outlineColor?:string
+    outlineRadiusBottomLeft?:number
+    outlineRadiusBottomRight?:number
+    outlineRadiusTopLeft?:number
+    outlineRadiusTopRight?:number
+    outlineThickness?:number
+    position?:string
+    stepIndentation?:number
+    wordWrap?:boolean
+    bandedFill?:boolean
+    bandedFillColor?:string
+    bandedFillOpacity?:number
+    highlightType?:string
+    expandCollapseFillColor?:string
+    expandCollapseIconColor?:string
+    expandCollapseIcon?:string
+    expandCollapseOutlineColor?:string
+    expandCollapseOutlineRadius?:number
+    expandCollapseOutlineThickness?:number
+    showExpand?:boolean
+    rowHeight?:string
+    rowPadding?:number
+    selectedOutline?:boolean
+    selectedFillColor?:string
+    selectedFillOpacity?:number
+    selectedOutlineColor?:string
+    selectedOutlineRadius?:number
+    selectedOutlineThickness?:number
+
+}
