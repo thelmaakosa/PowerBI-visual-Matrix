@@ -1,103 +1,78 @@
 import * as React from "react";
-import { useEffect } from "react";
-import { Button, Table } from "antd";
-import { FC, useMemo, useState } from "react";
-import { genTableData } from "./js/formatData";
-import { sampleMatrix } from "./sampleData";
-import { formattings } from "./formattingData";
-import { genSource } from "./js/formatData";
-// import { sampleMatrix } from './sampleData';
+import { Table } from "antd";
+import { FC, useEffect, useState } from "react";
 import powerbi from "powerbi-visuals-api";
+import { RowTitle } from "./RowTitle";
 
-import { ColumnStyleSettings, ExpandCollapseAllSettings, RowDetailsSettings, RowValueSettings, RowLabelSettings, ValueSettings} from "../settings"
-
-import * as d3 from "d3";
-
-interface IProps {
-  matrix: powerbi.DataViewMatrix;
-  valueSettings: any;
-  rowLabelSettings: any;
-  rowValueSettings: any;
-  matrixSettings: any;
-  rowDetailsSettings: RowDetailsSettings;
-  columnStyleSettings:any;
-  expandCollapseAllSettings:ExpandCollapseAllSettings;
-  mode: any;
+export interface IProps {
+  tableKey,
+  columns,
+  dataSource,
+  defaultExpandRowKeys,
+  rowKeys,
+  numOfLevels,
+  headerRowHeight,
+  rowValueSettings,
+  numberOfColumns,
+  visualHeight,
+  showRowDetail,
 }
 
-const MatrixTable: FC<IProps> = (props) => {
-  const sampleMatrix = props.matrix;
+export const MatrixTable: FC<IProps> = (props) => {
 
-  const [defaultExpandRowKeys, updateDefaultExpandRowKeys] = useState(
-    genSource(
-      sampleMatrix.rows,
-      sampleMatrix.valueSources,
-      props.rowLabelSettings,
-      props.rowDetailsSettings,
-    ).defaultExpandRowKeys
-  );
+  const [defaultExpandRowKeys, updateDefaultExpandRowKeys] = useState(props.defaultExpandRowKeys);
+  useEffect(()=>updateDefaultExpandRowKeys(props.defaultExpandRowKeys),[props.defaultExpandRowKeys])
+  
+  const [tableKey, updateTableKey] = useState(props.tableKey);
+  useEffect(()=>updateTableKey(props.tableKey),[props.tableKey])
 
-  const tableData = genTableData(
-    sampleMatrix,
-    props.mode,
-    formattings,
-    props.valueSettings,
-    props.rowLabelSettings,
-    props.matrixSettings,
-    props.rowDetailsSettings,
-    props.columnStyleSettings,
-    updateDefaultExpandRowKeys,
-    defaultExpandRowKeys
-  );
-
-  const [dataSource, updateDataSource] = useState(tableData.data);
-
-  const [tableKey, updateTableKey] = useState(tableData.tableKey);
-
-  const [columns, updateColumns] = useState(tableData.columns);
-
+  const [dataSource, updateDataSource] = useState(props.dataSource);
+  useEffect(()=>updateDataSource(props.dataSource),[props.dataSource])
+  
   const [hightlightRowKey, updateHightlightRowKey] = useState("");
 
-  useEffect(() => {
-    const tableData = genTableData(
-      sampleMatrix,
-      props.mode,
-      formattings,
-      props.valueSettings,
-      props.rowLabelSettings,
-      props.matrixSettings,
-      props.rowDetailsSettings,
-      props.columnStyleSettings,
-      updateDefaultExpandRowKeys,
-      defaultExpandRowKeys
-    );
-    updateDataSource(tableData.data);
-    updateDefaultExpandRowKeys(tableData.defaultExpandRowKeys);
-    updateTableKey(tableData.tableKey);
-    updateColumns(tableData.columns);
-  }, [
-    props.matrix,
-    props.rowLabelSettings,
-    props.valueSettings,
-    props.rowValueSettings,
-    JSON.stringify(defaultExpandRowKeys)
-  ]);
-
-  // useEffect(() => {
-  //   updateTableKey(String(Math.random()));
-  //   console.log(defaultExpandRowKeys, "defaultExpandRowKeys");
-  // }, );
+  const columns = [
+    {
+      dataIndex: ["name", "text"],
+      width: 150,
+      title: () => {
+        return (
+          <RowTitle
+            numOfLevels={props.numOfLevels}
+            headerRowHeight={props.headerRowHeight}
+            rowKeys={props.rowKeys}
+            updateDefaultExpandRowKeys={updateDefaultExpandRowKeys}
+            updateTableKey = {updateTableKey}
+            defaultExpandRowKeys={defaultExpandRowKeys}
+          />
+        );
+      },
+      sorter: (a, b) => {
+        return a?.name?.text > b?.name?.text ? 1: -1;
+      },
+      render: (text: string, record: Record<string, any>) => {
+        return (
+          <div className="row-label">
+            {text}
+            {(Object.keys(record).indexOf("rowDetail") > -1) && (props.showRowDetail) ? (
+              <p className="row-label-detail">{record["rowDetail"]}</p>
+            ) : null}
+          </div>
+        );
+      },
+    },
+    ...props.columns,
+  ]
 
   return (
     <Table
       key={tableKey}
       rowKey="rowKey"
       columns={columns}
-      dataSource={dataSource as any[]}
+      dataSource={dataSource}
       onRow={(record, index) => {
         return {
           onClick() {
-            // console.log(props.rowValueSettings[record.level].enableSelection)
             if (props.rowValueSettings[record.level].enableSelection) {
               if (
                 props.rowValueSettings[record.level].selectionType.indexOf(
@@ -135,7 +110,7 @@ const MatrixTable: FC<IProps> = (props) => {
           },
         };
       }}
-      scroll={{ x: 7500, y: 500 }}
+      scroll={{ x: (props.numberOfColumns+1) * 150, y: props.visualHeight - props.headerRowHeight*props.numOfLevels }}
       pagination={false}
       rowClassName={(record) =>
         record.rowKey == hightlightRowKey
@@ -143,9 +118,7 @@ const MatrixTable: FC<IProps> = (props) => {
           : record["className"]
       }
       expandable={{ defaultExpandedRowKeys: defaultExpandRowKeys }}
-      // defaultExpandAllRows = {true}
     />
   );
 };
 
-export default MatrixTable;

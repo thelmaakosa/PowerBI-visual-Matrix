@@ -8,6 +8,7 @@ interface IProps {
   rowKeys: string[];
   updateDefaultExpandRowKeys: any;
   defaultExpandRowKeys: any;
+  updateTableKey:any
 }
 
 export const RowTitle = (props: IProps) => {
@@ -22,10 +23,12 @@ export const RowTitle = (props: IProps) => {
       event.stopPropagation();
       updateExpandedAll("expanded");
       props.updateDefaultExpandRowKeys(props.rowKeys);
+      props.updateTableKey(`${Math.round(Math.random() * 1000)}`)
     } else {
       event.stopPropagation();
       updateExpandedAll("collapsed");
       props.updateDefaultExpandRowKeys([]);
+      props.updateTableKey(`${Math.round(Math.random() * 1000)}`)
     }
   };
 
@@ -33,7 +36,6 @@ export const RowTitle = (props: IProps) => {
     updateExpandedAll(
       props.defaultExpandRowKeys.length > 0 ? "expanded" : "collapsed"
     );
-    console.log(props.defaultExpandRowKeys, "props.defaultExpandRowKeys");
   }, [props.defaultExpandRowKeys]);
 
   return (

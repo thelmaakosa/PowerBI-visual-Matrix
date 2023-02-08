@@ -1,9 +1,7 @@
-import powerbi from "powerbi-visuals-api";
 import * as React from "react";
-import { ChartSettingsModel } from "./settings";
-export interface State {
-    matrix: powerbi.DataViewMatrix;
-    settings: ChartSettingsModel;
+import { IProps } from "./components/MatrixTable";
+export interface State extends IProps {
+    StyledDiv: any;
 }
 export declare const initialState: State;
 export declare class ReactVisual extends React.Component<{}, State> {

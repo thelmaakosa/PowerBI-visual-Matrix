@@ -17,5 +17,4 @@ export declare class Matrix implements IVisual {
     constructor(options: VisualConstructorOptions);
     update(options: VisualUpdateOptions): void;
     getFormattingModel(): powerbi.visuals.FormattingModel;
-    private getMatrixColorByIndex;
 }

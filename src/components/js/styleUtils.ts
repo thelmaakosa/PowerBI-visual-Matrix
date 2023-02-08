@@ -48,6 +48,10 @@ export const genFontStyle = (
 };
 
 export const genBackground = (fillColor = "#FFFFFF", fillOpacity = 100) => {
+  if(fillColor==''){
+    return `background-color:transparent;`
+  }
+
   const hexColor = d3.color(fillColor) as d3.RGBColor;
 
   return `

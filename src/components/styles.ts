@@ -39,5 +39,12 @@ export interface IStyles {
     selectedOutlineColor?:string
     selectedOutlineRadius?:number
     selectedOutlineThickness?:number
-
+    showUnits?:boolean
+    unitsFontBold:boolean
+    unitsFontColor:string
+    unitsFontFamily:string
+    unitsFontItalic:boolean
+    unitsFontSize:number
+    unitsFontUnderline:boolean
+    unitsSpacer:boolean
 }

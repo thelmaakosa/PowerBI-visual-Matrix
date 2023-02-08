@@ -1,16 +1,15 @@
 import { FC } from "react";
-import powerbi from "powerbi-visuals-api";
-import { ExpandCollapseAllSettings, RowDetailsSettings } from "../settings";
-interface IProps {
-    matrix: powerbi.DataViewMatrix;
-    valueSettings: any;
-    rowLabelSettings: any;
+export interface IProps {
+    tableKey: any;
+    columns: any;
+    dataSource: any;
+    defaultExpandRowKeys: any;
+    rowKeys: any;
+    numOfLevels: any;
+    headerRowHeight: any;
     rowValueSettings: any;
-    matrixSettings: any;
-    rowDetailsSettings: RowDetailsSettings;
-    columnStyleSettings: any;
-    expandCollapseAllSettings: ExpandCollapseAllSettings;
-    mode: any;
+    numberOfColumns: any;
+    visualHeight: any;
+    showRowDetail: any;
 }
-declare const MatrixTable: FC<IProps>;
-export default MatrixTable;
+export declare const MatrixTable: FC<IProps>;

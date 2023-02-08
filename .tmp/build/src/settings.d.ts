@@ -185,8 +185,8 @@ export declare class RowLabelSettings extends FormattingSettingsCard {
     slices: Array<FormattingSettingsSlice>;
 }
 export declare class RowValueSettings extends FormattingSettingsCard {
+    groupsBeforeValue: formattingSettings.ToggleSwitch;
     rowLevel: formattingSettings.ItemDropdown;
-    orderType: formattingSettings.ItemDropdown;
     fillColor_1: formattingSettings.ColorPicker;
     fillOpacity_1: formattingSettings.NumUpDown;
     bandedFill_1: formattingSettings.ToggleSwitch;
@@ -288,15 +288,9 @@ export declare class RowValueSettings extends FormattingSettingsCard {
     slices: Array<FormattingSettingsSlice>;
 }
 export declare class ValueSettings extends FormattingSettingsCard {
+    headerRowHeight: formattingSettings.NumUpDown;
+    headerRowPadding: formattingSettings.NumUpDown;
     valueIndex: formattingSettings.ItemDropdown;
-    showUnits_1: formattingSettings.ToggleSwitch;
-    unitsSpacer_1: formattingSettings.ToggleSwitch;
-    unitsFontFamily_1: formattingSettings.FontPicker;
-    unitsFontSize_1: formattingSettings.NumUpDown;
-    unitsFontColor_1: formattingSettings.ColorPicker;
-    unitsFontBold_1: formattingSettings.ToggleSwitch;
-    unitsFontItalic_1: formattingSettings.ToggleSwitch;
-    unitsFontUnderline_1: formattingSettings.ToggleSwitch;
     fillColor_1: formattingSettings.ColorPicker;
     fillOpacity_1: formattingSettings.NumUpDown;
     outlineColor_1: formattingSettings.ColorPicker;
@@ -321,14 +315,6 @@ export declare class ValueSettings extends FormattingSettingsCard {
     showSortIcon_1: formattingSettings.ToggleSwitch;
     iconColor_1: formattingSettings.ColorPicker;
     iconPosition_1: formattingSettings.ItemDropdown;
-    showUnits_2: formattingSettings.ToggleSwitch;
-    unitsSpacer_2: formattingSettings.ToggleSwitch;
-    unitsFontFamily_2: formattingSettings.FontPicker;
-    unitsFontSize_2: formattingSettings.NumUpDown;
-    unitsFontColor_2: formattingSettings.ColorPicker;
-    unitsFontBold_2: formattingSettings.ToggleSwitch;
-    unitsFontItalic_2: formattingSettings.ToggleSwitch;
-    unitsFontUnderline_2: formattingSettings.ToggleSwitch;
     fillColor_2: formattingSettings.ColorPicker;
     fillOpacity_2: formattingSettings.NumUpDown;
     outlineColor_2: formattingSettings.ColorPicker;
@@ -353,14 +339,6 @@ export declare class ValueSettings extends FormattingSettingsCard {
     showSortIcon_2: formattingSettings.ToggleSwitch;
     iconColor_2: formattingSettings.ColorPicker;
     iconPosition_2: formattingSettings.ItemDropdown;
-    showUnits_3: formattingSettings.ToggleSwitch;
-    unitsSpacer_3: formattingSettings.ToggleSwitch;
-    unitsFontFamily_3: formattingSettings.FontPicker;
-    unitsFontSize_3: formattingSettings.NumUpDown;
-    unitsFontColor_3: formattingSettings.ColorPicker;
-    unitsFontBold_3: formattingSettings.ToggleSwitch;
-    unitsFontItalic_3: formattingSettings.ToggleSwitch;
-    unitsFontUnderline_3: formattingSettings.ToggleSwitch;
     fillColor_3: formattingSettings.ColorPicker;
     fillOpacity_3: formattingSettings.NumUpDown;
     outlineColor_3: formattingSettings.ColorPicker;
@@ -389,6 +367,36 @@ export declare class ValueSettings extends FormattingSettingsCard {
     displayName: string;
     slices: Array<FormattingSettingsSlice>;
 }
+export declare class Units extends FormattingSettingsCard {
+    valueIndex: formattingSettings.ItemDropdown;
+    showUnits_1: formattingSettings.ToggleSwitch;
+    unitsSpacer_1: formattingSettings.ToggleSwitch;
+    unitsFontFamily_1: formattingSettings.FontPicker;
+    unitsFontSize_1: formattingSettings.NumUpDown;
+    unitsFontColor_1: formattingSettings.ColorPicker;
+    unitsFontBold_1: formattingSettings.ToggleSwitch;
+    unitsFontItalic_1: formattingSettings.ToggleSwitch;
+    unitsFontUnderline_1: formattingSettings.ToggleSwitch;
+    showUnits_2: formattingSettings.ToggleSwitch;
+    unitsSpacer_2: formattingSettings.ToggleSwitch;
+    unitsFontFamily_2: formattingSettings.FontPicker;
+    unitsFontSize_2: formattingSettings.NumUpDown;
+    unitsFontColor_2: formattingSettings.ColorPicker;
+    unitsFontBold_2: formattingSettings.ToggleSwitch;
+    unitsFontItalic_2: formattingSettings.ToggleSwitch;
+    unitsFontUnderline_2: formattingSettings.ToggleSwitch;
+    showUnits_3: formattingSettings.ToggleSwitch;
+    unitsSpacer_3: formattingSettings.ToggleSwitch;
+    unitsFontFamily_3: formattingSettings.FontPicker;
+    unitsFontSize_3: formattingSettings.NumUpDown;
+    unitsFontColor_3: formattingSettings.ColorPicker;
+    unitsFontBold_3: formattingSettings.ToggleSwitch;
+    unitsFontItalic_3: formattingSettings.ToggleSwitch;
+    unitsFontUnderline_3: formattingSettings.ToggleSwitch;
+    name: string;
+    displayName: string;
+    slices: Array<FormattingSettingsSlice>;
+}
 export declare class RowDetailsSettings extends FormattingSettingsCard {
     show: formattingSettings.ToggleSwitch;
     fontFamily: formattingSettings.FontPicker;
@@ -405,6 +413,7 @@ export declare class RowDetailsSettings extends FormattingSettingsCard {
     slices: Array<FormattingSettingsSlice>;
 }
 export declare class ExpandCollapseAllSettings extends FormattingSettingsCard {
+    showExpand: formattingSettings.ToggleSwitch;
     expandCollapseIcon: formattingSettings.ItemDropdown;
     expandCollapseIconColor: formattingSettings.ColorPicker;
     expandCollapseFillColor: formattingSettings.ColorPicker;
@@ -416,9 +425,9 @@ export declare class ExpandCollapseAllSettings extends FormattingSettingsCard {
     slices: Array<FormattingSettingsSlice>;
 }
 /**
-* BarChart settings model class
-*
-*/
+ * BarChart settings model class
+ *
+ */
 export declare class ChartSettingsModel extends FormattingSettingsModel {
     columnStyleSettings: ColumnStyleSettings;
     rowLabelSettings: RowLabelSettings;
@@ -427,6 +436,7 @@ export declare class ChartSettingsModel extends FormattingSettingsModel {
     matrixSettings: matrixStyleSettings;
     rowDetailsSettings: RowDetailsSettings;
     expandCollapseAllSettings: ExpandCollapseAllSettings;
-    cards: (RowLabelSettings | RowDetailsSettings | ColumnStyleSettings | RowValueSettings | ValueSettings | ExpandCollapseAllSettings)[];
+    unitsSettings: Units;
+    cards: (RowLabelSettings | ExpandCollapseAllSettings | ValueSettings | RowDetailsSettings | RowValueSettings | Units)[];
     updateLevels: (columnLevels: any, rowLevels: any, valueLevels: any) => void;
 }
